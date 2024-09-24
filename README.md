@@ -59,3 +59,6 @@ Continuous interaction until the user chooses to exit.
 TypeScript
 Node.js
 Inquirer.js for user input
+
+## Video Walkthrough
+Watch the walkthrough here
