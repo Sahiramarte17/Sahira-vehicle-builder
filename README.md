@@ -54,3 +54,8 @@ Create new vehicles by entering details such as type, make, model, and year.
 Select existing vehicles from a list.
 Perform actions on selected vehicles, including viewing their details.
 Continuous interaction until the user chooses to exit.
+
+## Technologies Used
+TypeScript
+Node.js
+Inquirer.js for user input
