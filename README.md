@@ -33,3 +33,10 @@ SO THAT I am able to comprehend and work with existing code bases.
 - **WHEN** I complete the process of performing an action  
   **THEN** I can perform additional actions until I choose to exit
 
+
+## Getting Started
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/vehicle-builder.git
+   cd vehicle-builder
