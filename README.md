@@ -37,6 +37,20 @@ SO THAT I am able to comprehend and work with existing code bases.
 ## Getting Started
 
 1. **Clone the Repository**
-   ```bash
+  
    git clone https://github.com/yourusername/vehicle-builder.git
    cd vehicle-builder
+
+2. **Install Dependencies
+
+   npm install
+
+3. **Run the Application
+
+   npm start
+
+## Features
+Create new vehicles by entering details such as type, make, model, and year.
+Select existing vehicles from a list.
+Perform actions on selected vehicles, including viewing their details.
+Continuous interaction until the user chooses to exit.
