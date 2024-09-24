@@ -1,0 +1,12 @@
+{
+  "name": "sahira-vehicle-builder",
+  "version": "1.0.0",
+  "description": "A Vehicle Builder is a software application or tool that allows users to create, customize, and manage vehicles through a user-friendly interface.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
