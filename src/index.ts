@@ -1,11 +1,7 @@
-import inquirer from 'inquirer';
-import { Car } from './Car';
-import { Truck } from './Truck';
-import { Motorbike } from './Motorbike';
+const inquirer = require("inquirer");
+import { Car, Truck, Motorbike, Vehicle } from './Vehicle.ts';
 
-const vehicles: Vehicle[] = [];
-
-async function main() {
+async function main()  {
     while (true) {
         const { action } = await inquirer.prompt({
             type: 'list',
@@ -38,7 +34,7 @@ async function createVehicle() {
         message: 'Enter vehicle name:'
     });
 
-    let vehicle: Vehicle;
+    let vehicle = new Vehicle("vehicle");
 
     if (vehicleType === 'Car') {
         const { doors } = await inquirer.prompt({
@@ -47,6 +43,7 @@ async function createVehicle() {
             message: 'Enter number of doors:'
         });
         vehicle = new Car(name, doors);
+        console.log(`Created: ${vehicle.displayInfo()}`);
     } else if (vehicleType === 'Truck') {
         const { capacity } = await inquirer.prompt({
             type: 'number',
@@ -54,6 +51,7 @@ async function createVehicle() {
             message: 'Enter truck capacity in tons:'
         });
         vehicle = new Truck(name, capacity);
+        console.log(`Created: ${vehicle.displayInfo()}`);
     } else if (vehicleType === 'Motorbike') {
         const { type } = await inquirer.prompt({
             type: 'input',
@@ -61,17 +59,25 @@ async function createVehicle() {
             message: 'Enter motorbike type:'
         });
         vehicle = new Motorbike(name, type);
+        console.log(`Created: ${vehicle.displayInfo()}`);
     }
-
-    vehicles.push(vehicle);
-    console.log(`Created: ${vehicle.displayInfo()}`);
+    
 }
 
 async function selectVehicle() {
+
+    let corvette = new Car("Chevrolet Covette", 2);
+    let mustang = new Car("Ford Mustang", 4);
+    let f150 = new Truck("Ford F150", 2.5 );
+    let hummer = new Truck("GMC Hummer", 1.75);
+    let roadGlide = new Motorbike("Harley Davidson Road Glide", "American Touring");
+    let katana = new Motorbike("Suzuki Katana", "sport motorcycle");
+
+    let vehicles = [corvette, f150, roadGlide, mustang, hummer, katana]
     if (vehicles.length === 0) {
         console.log('No vehicles available.');
         return;
-    }
+    } 
 
     const { vehicleIndex } = await inquirer.prompt({
         type: 'list',

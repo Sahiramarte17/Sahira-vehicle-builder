@@ -4,7 +4,6 @@ export class Vehicle {
         return `Vehicle Name: ${this.name}`;
     }
 }
-import { Vehicle } from './Vehicle';
 
 export class Car extends Vehicle {
     constructor(name: string, public doors: number) {
@@ -14,7 +13,6 @@ export class Car extends Vehicle {
         return `${super.displayInfo()}, Doors: ${this.doors}`;
     }
 }
-import { Vehicle } from './Vehicle';
 
 export class Truck extends Vehicle {
     constructor(name: string, public capacity: number) {
@@ -27,7 +25,6 @@ export class Truck extends Vehicle {
         return `${this.name} is towing a trailer.`;
     }
 }
-import { Vehicle } from './Vehicle';
 
 export class Motorbike extends Vehicle {
     constructor(name: string, public type: string) {
