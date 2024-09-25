@@ -61,7 +61,8 @@ Node.js
 Inquirer.js for user input
 
 ## Video Walkthrough
-Watch the walkthrough here
+Watch the walkthrough here: https://app.screencastify.com/v2/manage/videos/gGEctYmEsNnDZKF7AEZG
+
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
