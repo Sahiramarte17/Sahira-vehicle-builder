@@ -1,94 +1,41 @@
-const inquirer = require("inquirer");
-import { Car, Truck, Motorbike, Vehicle } from './Vehicle.ts';
+// import classes
+import Truck from "./classes/Truck.js";
+import Car from "./classes/Car.js";
+import Motorbike from "./classes/Motorbike.js";
+import Wheel from "./classes/Wheel.js";
+import Cli from "./classes/Cli.js";
 
-async function main()  {
-    while (true) {
-        const { action } = await inquirer.prompt({
-            type: 'list',
-            name: 'action',
-            message: 'What would you like to do?',
-            choices: ['Create New Vehicle', 'Select Existing Vehicle', 'Exit']
-        });
+// create an array of vehicles
+const vehicles = [];
 
-        if (action === 'Exit') break;
+// TODO: uncomment once trucks are implemented
+// const truck1 = new Truck(Cli.generateVin(),"red", "Ford", "F-150", 2021, 5000, 120, [], 10000);
 
-        if (action === 'Create New Vehicle') {
-            await createVehicle();
-        } else {
-            await selectVehicle();
-        }
-    }
-}
+// will use default wheels
+const car1 = new Car(
+  Cli.generateVin(),
+  'blue',
+  'Toyota',
+  'Camry',
+  2021,
+  3000,
+  130,
+  []
+);
 
-async function createVehicle() {
-    const { vehicleType } = await inquirer.prompt({
-        type: 'list',
-        name: 'vehicleType',
-        message: 'Select vehicle type:',
-        choices: ['Car', 'Truck', 'Motorbike']
-    });
+// TODO: uncomment once motorbikes are implemented
+// const motorbike1Wheels = [new Wheel(17, "Michelin"), new Wheel(17, "Michelin")];
+// const motorbike1 = new Motorbike(Cli.generateVin(), "black", "Harley Davidson", "Sportster", 2021, 500, 125, motorbike1Wheels);
 
-    const { name } = await inquirer.prompt({
-        type: 'input',
-        name: 'name',
-        message: 'Enter vehicle name:'
-    });
+// push vehicles to array
+// TODO: uncomment once trucks are implemented
+// vehicles.push(truck1);
+vehicles.push(car1);
+// TODO: uncomment once motorbikes are implemented
+// vehicles.push(motorbike1);
 
-    let vehicle = new Vehicle("vehicle");
+// create a new instance of the Cli class
+const cli = new Cli(vehicles);
 
-    if (vehicleType === 'Car') {
-        const { doors } = await inquirer.prompt({
-            type: 'number',
-            name: 'doors',
-            message: 'Enter number of doors:'
-        });
-        vehicle = new Car(name, doors);
-        console.log(`Created: ${vehicle.displayInfo()}`);
-    } else if (vehicleType === 'Truck') {
-        const { capacity } = await inquirer.prompt({
-            type: 'number',
-            name: 'capacity',
-            message: 'Enter truck capacity in tons:'
-        });
-        vehicle = new Truck(name, capacity);
-        console.log(`Created: ${vehicle.displayInfo()}`);
-    } else if (vehicleType === 'Motorbike') {
-        const { type } = await inquirer.prompt({
-            type: 'input',
-            name: 'type',
-            message: 'Enter motorbike type:'
-        });
-        vehicle = new Motorbike(name, type);
-        console.log(`Created: ${vehicle.displayInfo()}`);
-    }
-    
-}
-
-async function selectVehicle() {
-
-    let corvette = new Car("Chevrolet Covette", 2);
-    let mustang = new Car("Ford Mustang", 4);
-    let f150 = new Truck("Ford F150", 2.5 );
-    let hummer = new Truck("GMC Hummer", 1.75);
-    let roadGlide = new Motorbike("Harley Davidson Road Glide", "American Touring");
-    let katana = new Motorbike("Suzuki Katana", "sport motorcycle");
-
-    let vehicles = [corvette, f150, roadGlide, mustang, hummer, katana]
-    if (vehicles.length === 0) {
-        console.log('No vehicles available.');
-        return;
-    } 
-
-    const { vehicleIndex } = await inquirer.prompt({
-        type: 'list',
-        name: 'vehicleIndex',
-        message: 'Select an existing vehicle:',
-        choices: vehicles.map((v, index) => ({ name: v.displayInfo(), value: index }))
-    });
-
-    const selectedVehicle = vehicles[vehicleIndex];
-    console.log(`Selected: ${selectedVehicle.displayInfo()}`);
-    // Further actions can be implemented here
-}
-
-main().catch(console.error);
+// start the cli
+cli.startCli();
