@@ -25,10 +25,10 @@ class Motorbike extends Vehicle {
     topSpeed: number,
     wheels: Wheel[]
   ) {
-        // Call the constructor of the parent class, Vehicle
-        super(vin, make, model, year, color, weight, topSpeed);
+    // Call the constructor of the parent class, Vehicle
+    super();
 
-         // Initialize properties of the Car class
+    // Initialize properties of the Car class
     this.vin = vin;
     this.color = color;
     this.make = make;
@@ -59,7 +59,7 @@ class Motorbike extends Vehicle {
     console.log(`Year: ${this.year}`);
     console.log(`Weight: ${this.weight} lbs`);
     console.log(`Top Speed: ${this.topSpeed} mph`);
-    console.log(`Wheels: ${this.wheels.length}`;
+    console.log(`Wheels: ${this.wheels.length}`);
 
       // Print details of the wheels
     console.log(
@@ -69,7 +69,6 @@ class Motorbike extends Vehicle {
       `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`
     );
 
-    );
   }
 }
 
@@ -77,21 +76,5 @@ class Motorbike extends Vehicle {
 export default Motorbike;
 
 
-  // TODO: Declare properties of the Motorbike class
-  // TODO: The properties should include vin, color, make, model, year, weight, top speed, and wheels
-  // TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[])
-
-  // TODO: Create a constructor that accepts the properties of the Motorbike class
-    // TODO: The constructor should call the constructor of the parent class, Vehicle
-    // TODO: The constructor should initialize the properties of the Motorbike class
-    // TODO: The constructor should check if the wheels array has 2 elements and create 2 new default Wheel objects if it does not
-
-  // TODO: Implement the wheelie method
-    // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
-
-  // TODO: Override the printDetails method from the Vehicle class
-  // TODO: The method should call the printDetails method of the parent class
-  // TODO: The method should log the details of the Motorbike
-  // TODO: The details should include the VIN, make, model, year, weight, top speed, color, and wheels
 
 

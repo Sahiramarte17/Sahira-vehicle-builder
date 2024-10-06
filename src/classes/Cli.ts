@@ -180,7 +180,7 @@ class Cli {
       .then((answers) => {
         const truck = new Truck (
           // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well!
-          Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), []);
+          Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), [], 25000);
           // push the truck to the vehicles array
           this.vehicles.push(truck);
           // set the selectedVehicleVin to the vin of the truck
@@ -281,12 +281,12 @@ class Cli {
         if (selectedVehicle.vin === truck.vin) {
             console.log('The truck cannot tow itself.');
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
-        this.performActionsOnTruck(truck);
+        this.performActions();
     } else {
         // Tow the selected vehicle
         console.log(`Towing vehicle: ${selectedVehicle.vin} -- ${selectedVehicle.make} ${selectedVehicle.model}`);
         // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
-        this.performActionsOnTruck(truck);
+        this.performActions();
     } 
       });
   }
